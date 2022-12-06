@@ -137,4 +137,20 @@ namespace Myfirstproject.Loops
             }
         }
     }
+
+    class Power3
+    {
+        static void Main(string[] args)
+        {
+            int c = 1;
+            int a = int.Parse(Console.ReadLine());
+            int b = int.Parse(Console.ReadLine());
+            while(b>0)
+            {
+                c = c * a;
+                b--;
+            }
+            Console.WriteLine(c);
+        }
+    }
 }

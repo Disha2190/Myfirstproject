@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <StartupObject>Myfirstproject.Loops.Pattern25</StartupObject>
+	  <StartupObject>Myfirstproject.StringProg.LongestWord</StartupObject>
   </PropertyGroup>
 
 </Project>
