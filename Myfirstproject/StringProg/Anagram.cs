@@ -14,8 +14,8 @@ namespace Myfirstproject.StringProg
             {
                 Array.Sort(ch1);
                 Array.Sort(ch2);
-                Console.WriteLine(string.Join(" ",ch1));
-                Console.WriteLine(string.Join(" ", ch2));
+                Console.WriteLine(string.Join("",ch1));
+                Console.WriteLine(string.Join("",ch2));
                 string str = new string(ch1);
                 string str2 = new string(ch2);
                 Console.WriteLine(str+" "+str2);

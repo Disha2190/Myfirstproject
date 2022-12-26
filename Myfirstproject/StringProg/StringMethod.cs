@@ -34,7 +34,7 @@ namespace Myfirstproject.StringProg
             Console.WriteLine(y);
         }
     }
-    class StrMaethods
+    class StrMethods
     {
         static void Main(string[] args)
         {

@@ -36,7 +36,7 @@ namespace Myfirstproject.StringProg
             Console.WriteLine("Enter the string:");
             string str = Console.ReadLine();
             Console.WriteLine(" " + str);
-            Abbreviate.Abbr(str);
+            Console.WriteLine("Abbrivated Name: " + Abbreviate.Abbr(str));
         }
     }
     

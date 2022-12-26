@@ -309,45 +309,194 @@ namespace Myfirstproject.ArrayProgram
     {
         static void Main(string[] args)
         {
-                int i, j;
-                Console.WriteLine("Enter array 1 size:");
-                int size1 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter array 1 elements:");
-                int[] arr1 = new int[size1];
-                for (i = 0; i < size1; i++)
-                {
-                    arr1[i] = int.Parse(Console.ReadLine());
-                }
-                Console.WriteLine("Enter array 2 size:");
-                int size2 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter array 2 elements:");
-                int[] arr2 = new int[size2];
-                for (i = 0; i < size2; i++)
-                {
-                    arr2[i] = int.Parse(Console.ReadLine());
-                }
-                int[] arr3 = new int[size1 + size2];
-                for (i = 0, j = 0; i < size1; i++)
-                {
-                    arr3[j++] = arr1[i];
-                }
-                for (i = 0; i < size2; i++)
-                {
-                    arr3[j++] = arr2[i];
-                }
-                Console.WriteLine("Elements of array 3 are:");
-                for (i = 0; i < size1 + size2; i++)
-                {
-                    Console.Write(arr3[i] + " ");
-                }
+            int i, j;
+            int[] arr1 = new int[5];
+            int[] arr2 = new int[5];
+            int[] arr = new int[arr1.Length+arr2.Length];
+
+          
+            Console.WriteLine("Enter array 1 elements:");
+            for (i = 0; i < arr1.Length; i++)
+            {
+                arr1[i] = int.Parse(Console.ReadLine());
+            }
+          
+            Console.WriteLine("Enter array 2 elements:");
+            for (i = 0; i < arr2.Length; i++)
+            {
+                arr2[i] = int.Parse(Console.ReadLine());
+            }
             
+            int k = 0, count = 0;
+            for(i=0;i<arr1.Length;i++)
+            {
+                count = 0;
+                for(j=k-1;j>=0;j--)
+                {
+                    if(arr[i]==arr1[j])
+                    {
+                        count++;
+                        break;
+                    }
+                }
+                if(count==0)
+                {
+                    arr[k++] = arr1[i];
+                }
+            }
+            for(i=0;i<arr2.Length;i++)
+            {
+                count = 0;
+                for(j=k-1;j>=0;j--)
+                {
+                    if(arr[i]==arr2[j])
+                    {
+                        count++;
+                        break;
+                    }
+                }
+                if(count==0)
+                {
+                    arr[k++] = arr2[i];
+                }
+            }
+            Console.WriteLine("Merged array is:");
+            for(i=0;i<k;i++)
+            {
+                Console.Write(arr[i]+" ");
+            }
         }
     }
     class Task11 //WAP sort array elements in ascending order.
     {
         static void Main(string[] args)
         {
-
+            int[] arr = new int[8];
+            for(int i=0;i<arr.Length;i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+            for(int i=0;i<arr.Length;i++)
+            {
+                for(int j=i+1;j<arr.Length;j++)
+                {
+                    if(arr[i]>arr[j])
+                    {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+            Console.WriteLine("Sorted array is: ");
+            for(int i=0;i<arr.Length;i++)
+            {
+                Console.Write(arr[i]+" ");
+            }
         }
     }
+    //WAP to reverse the array itself, don’t print array in reverse – I want current array reverse.
+    //Means e.g. arr[] = [3, 90, 45, 29, 37, 78] so your same array must be [78, 37, 29, 45, 90, 3] without
+    //using temporary array
+    class Task12
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 3, 90, 45, 29, 37, 78 };
+            for(int i=0,j=arr.Length-1;i<arr.Length/2;i++,j--)
+            {
+                int tmp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = tmp;
+            }
+            for(int i=0;i<arr.Length;i++)
+            {
+                Console.Write(arr[i]+" ");
+            }
+        }
+    }
+    //Write a  program to test the equality of two arrays. Means e.g arr1[] = [12, 22, 32, 42, 52, 62]
+    //and arr2[] = [52, 22, 62, 12, 42, 22] Here both arrays are equal.
+    class Task13
+    {
+        static void Main(string[] args)
+        {
+            int[] arr1 = { 12, 22, 32, 42, 52, 62 };
+            int[] arr2 = { 52, 22, 62, 12, 42, 22 };
+            int count = 0;
+            if(arr1.Length==arr2.Length)
+            {
+                for(int i=0;i<arr1.Length;i++)
+                {
+                    for(int j=0;j<arr2.Length;j++)
+                    {
+                        if(arr1[i]==arr2[j])
+                        {
+                            count++;
+                        }
+                    }
+                }
+                if(count==arr1.Length)
+                {
+                    Console.WriteLine("Array are equal");
+                }
+                else
+                {
+                    Console.WriteLine("Array are unequal");
+                }
+            }
+        }
+    }
+
+    //WAP to replace all negative value with its immediate left elements square.
+    //Means arr[] = [12, 3,-19, 29, 5, -61, 44, 7, -9]
+    //Output array will be [12, 3, 9, 29, 5, 25, 44, 7, 49].
+    class Task14
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 12, 3, -19, 29, 5, -61, 44, 7, -9 };
+            for(int i=0;i<arr.Length;i++)
+            {
+                if(arr[i]<0)
+                {
+                    arr[i] = arr[i - 1] * arr[i - 1];
+                }
+            }
+            for(int i=0;i<arr.Length; i++)
+            {
+                Console.Write(arr[i]+" ");
+            }
+        }
+    }
+    //WAP to arrange the elements of an given array of integers where all negative integers appear before
+    //all the positive integers.
+    class Task15
+    {
+        static void Main(string[] args)
+        {
+            int[] arr = { 1, -78, 2, 4, -25, 5, 67, -45 };
+            int[] arr1 = new int[arr.Length];
+            int k = 0;
+            for(int i=0;i<arr.Length;i++)
+            {
+                if(arr[i]<0)
+                {
+                    arr1[k++] = arr[i];
+                }
+            }
+            for(int i=0;i<arr.Length;i++)
+            {
+                if(arr[i]>=0)
+                {
+                    arr1[k++] = arr[i];
+                }
+            }
+            for(int i=0;i<k;i++)
+            {
+                Console.Write(arr1[i]+" ");
+            }
+        }
+    }
+
 }
