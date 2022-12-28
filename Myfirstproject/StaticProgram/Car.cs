@@ -40,7 +40,7 @@ namespace Myfirstproject.StaticProgram
         {
             Console.WriteLine("Addition: "+(x+y));
         }
-        public void Add(double x,int y)
+        public static void Add(double x,int y)
         {
             Console.WriteLine("Addition: "+(x+y));
         }
@@ -48,7 +48,7 @@ namespace Myfirstproject.StaticProgram
         {
             Addition.Add(5, 5);
             Addition a = new Addition();
-            a.Add(2.2, 5);
+            Addition.Add(2.2, 5);
         }
     }
     //Write a method to accept variable no of integers.

@@ -568,47 +568,27 @@ namespace Myfirstproject.StringProg
         static void Main(string[] args)
         {
             string str = "THE SKY IS THE LIMIT";
-            char[] st = str.ToLower().ToCharArray();
             Console.WriteLine("Enter word:");
             string word = Console.ReadLine();
-            char[] w = word.ToLower().ToCharArray();
-            int count = 0, cnt = 0;
-            bool ispre = false,isp=false;
-            for(int i=0;i<w.Length;i++)
+            int count = 0;
+            for(int i=0;i<word.Length;i++)
             {
-                ispre = false;
-                isp = false;
-                for(int k=i-1;k>=0;k++)
+                for(int j=0;j<str.Length;j++)
                 {
-                    if(w[i].Equals(w[k]))
+                    if(word[i].Equals(str[j]))
                     {
-                        ispre = true;
+                        count++;
                         break;
                     }
                 }
-                if (ispre==false)
-                {
-                    for (int j = 0; j < st.Length; j++)
-                    {
-                        if (w[i].Equals(st[i]))
-                        {
-                            isp= true;
-                            break;
-                        }
-                    }
-                }
-                if(ispre==true)
-                {
-                    count++;
-                }
             }
-            if(count==w.Length)
+            if(count==word.Length)
             {
-                Console.WriteLine("Yes can be formed");
+                Console.WriteLine("Yes formed");
             }
             else
             {
-                Console.WriteLine("No");
+                Console.WriteLine("Not formed");
             }
         }
     }

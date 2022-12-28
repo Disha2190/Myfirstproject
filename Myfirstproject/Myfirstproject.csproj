@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-	  <StartupObject>Myfirstproject.CrudeOperation.BookDetails</StartupObject>
+	  <StartupObject>Myfirstproject.CrudeOperation.BookDetailsArrList</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

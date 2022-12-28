@@ -55,7 +55,7 @@ namespace Myfirstproject.CrudeOperation
         public int booksize;
         public void Insert() //Insertion of book
         {
-            Console.WriteLine("Enter how namy books details you want to enter");
+            Console.WriteLine("Enter how many books details you want to enter");
             int NoOfBook = int.Parse(Console.ReadLine());
             int bookid, price, authorid;
             string bookname, authorname;
@@ -104,7 +104,7 @@ namespace Myfirstproject.CrudeOperation
                         NoOfBook++;
                     }
                 }
-                booksize = NoOfBook;
+              //  booksize = NoOfBook;
             }
             else
             {
@@ -116,37 +116,43 @@ namespace Myfirstproject.CrudeOperation
             bool ispresent = false;
             for (int i = 0; i < bk.Length; i++)
             {
-                ispresent = false;
-                if (bk[i].BookId.Equals(bkid))
+                if (bk[i] != null)   //Check null value
                 {
-                    Console.WriteLine("Book Details:\n Book Id:" + bk[i].BookId + "\nBook Name: " + bk[i].BookName + "\nBook Price: " + bk[i].Price + "\nAuthor Id: " + bk[i].A.AuthorId + "\nAuthor Name:" + bk[i].A.Authorname);
-                    ispresent = true;
-                    break;
+                    if (bk[i].BookId.Equals(bkid))
+                    {
+                        Console.WriteLine("Book Details:\n Book Id:" + bk[i].BookId + "\nBook Name: " + bk[i].BookName + "\nBook Price: " + bk[i].Price + "\nAuthor Id: " + bk[i].A.AuthorId + "\nAuthor Name:" + bk[i].A.Authorname);
+                        ispresent = true;
+                        break;
+                    }
                 }
             }
             if (ispresent == false)
             {
+                Console.WriteLine("Book Details not found");
                 Console.WriteLine("Book id doese not present please enter right book id");
             }
         }
         public void UpdateBookDetails(int bkid) //Update Details of book
         {
             bool ispresent = false;
-            Console.WriteLine("Enter Book new price: ");
-            int newprice = int.Parse(Console.ReadLine());
+            
             for (int i = 0; i < bk.Length; i++)
             {
-                ispresent = false;
-                if (bk[i].BookId.Equals(bkid))
+                if (bk[i] != null)  //Check null value
                 {
-                    bk[i].Price = newprice;
-                    ispresent = true;
-                    break;
+                    if (bk[i].BookId.Equals(bkid))
+                    {
+                        Console.WriteLine("Enter Book new price: ");
+                        int newprice = int.Parse(Console.ReadLine());
+                        bk[i].Price = newprice;
+                        ispresent = true;
+                        break;
+                    }
                 }
             }
             if (ispresent == false)
             {
-                Console.WriteLine("Book Id not found");
+                Console.WriteLine("Book Id not found please enter proper Id");
             }
             else
             {
@@ -158,9 +164,8 @@ namespace Myfirstproject.CrudeOperation
             bool ispresent = false;
             for (int i = 0; i < bk.Length; i++)
             {
-                ispresent = false;
-                try
-                {
+                 if(bk[i]!=null)  //Check null value
+                 {
                     if (bk[i].BookId.Equals(bkid))
                     {
                         bk[i].BookId = 0;
@@ -171,15 +176,15 @@ namespace Myfirstproject.CrudeOperation
                         ispresent = true;
                         break;
                     }
-                }
-                catch(Exception)
-                {
-                    Console.WriteLine("Id not found:");
-                }
+                 }
             }    
             if(ispresent==true)
             {
                 Console.WriteLine("Book Details Deleted Successfully");
+            }
+            else
+            {
+                Console.WriteLine("Book Details not found");
             }
         }
     }
@@ -191,9 +196,12 @@ namespace Myfirstproject.CrudeOperation
             bool stop = false;
             do
             {
-
-                Console.WriteLine("Enter option:\n1.Insert\n2.Display\n3.Update\n4.Delete\n5.Exit ");
-                int n = int.Parse(Console.ReadLine());
+                int n;
+                Console.WriteLine("\t\t\t\t\t\tWelcome");
+                Console.WriteLine("\t\t\t\t\tTo Book Management");
+                Console.WriteLine();
+                Console.WriteLine("\t\t\t\t\t1.Insert\n\t\t\t\t\t2.Display\n\t\t\t\t\t3.Update\n\t\t\t\t\t4.Delete\n\t\t\t\t\t5.Exit\n\t\t\t\t\tEnter option: ");
+                n = int.Parse(Console.ReadLine());
                 switch(n)
                 {
                     case 1:
